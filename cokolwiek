@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div id="container">
+        <div id="buttonsDiv">
+            <input type="button" id="buttonOne" onclick="OneClick">
+            <input type="button" id="buttonTwo" onclick="TwoClick">
+            <input type="button" id="buttonThree" onclick="ThreeClick" >
+        </div>
+        <div id="main">
+
+        </div>
+        <div id="one" class="hidden">
+            <span>one</span>
+        </div>
+        <div id="two" class="hidden">
+            <span>two</span>
+        </div>
+        <div id="three" class="hidden">
+            <span>three</span>
+        </div>
+        <div id="temp" class="hidden">
+            <span>temp</span>
+        </div>
+    </div>
+</body>
+
+<script>
+    x = document.getElementById("buttonTwo");
+    x.Onclick = OneClick();
+function OneClick()
+{
+
+
+}
+TwoClick
+ThreeClick
+</script>
+
+
+</html>
