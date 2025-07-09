@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="stylesheet" href="style.css" />
+  <title>My Website</title>
+</head>
+
+<body>
+
+  <object type="text/html" data="banner.html" class="bannerBox"></object>
+  <div id="background"></div>
+  <main>
+    <div class="wrapper-center">
+      <div class="introBox">
+        <div class="tierListBox">
+          <div class="tierList">
+            <div class="tListTitle">Games</div>
+            <div class="row ">
+              <div class="tier tierS">S</div>
+              <div class="tieredObjectsList">
+                <div class="tieredObject" objectContext="" onclick="handleTieredObjectClick(event)" data-gameid="NierA">
+                  <img src="./icons/100x100/NierAutomata.jpg">
+                </div>
+              </div>
+            </div>
+            <div class="row ">
+              <div class="tier tierA">A</div>
+              <div class="tieredObjectsList">
+                <div class="tieredObject"></div>
+              </div>
+            </div>
+            <div class="row ">
+              <div class="tier tierB">B</div>
+              <div class="tieredObjectsList">
+                <div class="tieredObject">
+
+                </div>
+              </div>
+            </div>
+            <div class="row ">
+              <div class="tier tierC">C</div>
+              <div class="tieredObjectsList">
+                <div class="tieredObject"></div>
+              </div>
+            </div>
+            <div class="row ">
+              <div class="tier tierD">D</div>
+              <div class="tieredObjectsList">
+                <div class="tieredObject" objectContext="" onclick="handleTieredObjectClick(event)"
+                  data-gameid="Shapez1">
+                  <img src="./icons/100x100/shapezIcon.png">
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div id="infobox">
+      <p id="infobox-content"></p>
+      <button onclick="TLCloseInfoBox()">Zamknij</button>
+    </div>
+
+  </main>
+</body>
+
+<script>
+
+  
+  var gameData;
+
+  fetch('https://username.github.io/data/gameData.JSON')
+  .then(res => res.json())
+  .then(data => {
+    gameData = data;
+    // użycie danych
+  });
+
+
+  function TLCloseInfoBox() {
+    const infobox = document.getElementById('infobox');
+    infobox.style.display = 'none';
+  }
+
+
+  function handleTieredObjectClick(event) {
+    const gameId = event.currentTarget.dataset.gameid;
+    console.log("Kliknięto grę o ID:", gameId);
+    TLOpenInfoBox(gameId);
+
+  }
+
+
+  function TLOpenInfoBox(tl_ItemData) {
+    const infobox = document.getElementById('infobox');
+    const content = document.getElementById('infobox-content');
+
+
+
+    content.textContent = `Wybrano grę o ID: ${tl_ItemData}`;
+    infobox.style.display = 'block';
+  }
+
+
+</script>
+
+<script src="background.js"></script>
+<script src="tierListScript.js"></script>
+
+
+</html>
