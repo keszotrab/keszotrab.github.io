@@ -16,67 +16,24 @@
     <main>
         <div id="banner">
 
-            <div class="wrapper-center">
-                <div class="introBox">
-                    <h1>Welcome to My Website</h1>
-                    <p>This is my new website which is hosted on GitHub Pages!</p>
+            <div class="wrapper-left">
+                <div class="scout-box">
+                    <div id="scout-stars">
+                        <h2>Gwiazdki złotego skauta:</h2>
+                        <ul>
+                            <li>Parker: ★ ★ </li>
+                            <li>Avat: </li>
+                            <li>Froggie: </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <h1>Welcome to My Website</h1>
-        <p>This is my new website which is hosted on GitHub Pages!</p>
-        <!-- <input type="button" id="StarsOnOff" onclick="document.getElementById('Stars').style.display='none'">  -->
-        <!-- <input type="button" id="StarsOnOff" value="123" onclick="OnOff()"> -->
-        <input type="button" id="StarsOnOff" value="123">
-        <input type="button" id="CycleContent" value="cycle">
-
-        <div id="Stars">
-            <h2>Gwiazdki złotego skauta:</h2></br>
-            <ul>
-                <li>Parker: ★ ★ </li>
-                <li>Avat: </li>
-                <li>Froggie: </li>
-            </ul>
-        </div>
-
-        <div id="moveTo">
-            <span>bam bam bam</span>
-        </div>
     </main>
 </body>
 
 <script>
-    //document.getElementById("Stars").style.display = 'none';
-    const button = document.getElementById('StarsOnOff');
-    button.addEventListener("click", OnOff);
-
-    const button2 = document.getElementById('CycleContent');
-    button2.addEventListener("click", CycleContent)
-
-
-    function CycleContent() {
-
-        $("#moveTo").prependTo($("#Stars"));
-    }
-
-
-
-
-
-
-
-    function OnOff() {
-        const StarsDisplay = document.getElementById('Stars').style.display;
-        if (StarsDisplay == 'none') {
-            document.getElementById('Stars').style.display = 'block';
-        }
-        else {
-            document.getElementById('Stars').style.display = 'none';
-        }
-    }
-
-
 </script>
 <script src="background.js"></script>
 
