@@ -63,49 +63,78 @@
     </div>
 
     <div id="infobox">
-      <p id="infobox-content"></p>
+      <div id="infobox-wrapper">
+        <div id="infobox-image">
+          <img src="./icons/100x100/NierAutomata.jpg">
+        </div>
+        <div id="infobox-title">
+        </div>
+      </div>
+      <p id="infobox-description"></p>
       <button onclick="TLCloseInfoBox()">Zamknij</button>
     </div>
 
   </main>
 </body>
 
-<script>
 
-  
-  var gameData;
-/*
-  fetch('https://username.github.io/data/gameData.JSON')
-  .then(res => res.json())
-  .then(data => {
-    gameData = data;
-    // użycie danych
-  });
-*/
+<script src="tierListScript.js"></script>
+
+<script>
 
   function TLCloseInfoBox() {
     const infobox = document.getElementById('infobox');
     infobox.style.display = 'none';
   }
 
-
   function handleTieredObjectClick(event) {
     const gameId = event.currentTarget.dataset.gameid;
     console.log("Kliknięto grę o ID:", gameId);
     TLOpenInfoBox(gameId);
-
   }
 
+  function TLOpenInfoBox(gameId) {
 
-  function TLOpenInfoBox(tl_ItemData) {
+    const game = gameData.find(g => g.id === gameId);
     const infobox = document.getElementById('infobox');
-    const content = document.getElementById('infobox-content');
+    const title = document.getElementById('infobox-title');
+    const description = document.getElementById('infobox-description');
+
+
+    document.querySelector("#infobox-image img").src = game.image;
 
 
 
-    content.textContent = `Wybrano grę o ID: ${tl_ItemData}`;
+    title.textContent = game.title;
+    description.textContent = game.description;
     infobox.style.display = 'block';
+
   }
+
+
+
+
+
+  gameData = [
+    {
+      "id": "NierA",
+      "title": "Nier Automata",
+      "description": "Best game ever created.",
+      "genre": "RPG",
+      "releaseYear": "??",
+      "image": "./icons/100x100/NierAutomata.jpg"
+    },
+    {
+      "id": "Shapez1",
+      "title": "Shapez",
+      "description": "The reason D tier exists.",
+      "genre": "Factory",
+      "releaseYear": "???",
+      "image": "./icons/100x100/shapezIcon.png"
+    }
+  ]
+
+
 
 
 </script>

@@ -168,3 +168,29 @@ main {
   color: black;
   border-radius: 8px;
 }
+
+#infobox-wrapper {
+    display: flex;
+}
+
+#infobox-text {
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+}
+
+#infobox-image {
+  border: #000;
+}
+
+#infobox-title {
+  font-size: 22px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+#infobox-description {
+  font-size: 16px;
+}
