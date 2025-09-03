@@ -14,7 +14,7 @@
   <object type="text/html" data="banner.html" class="bannerBox"></object>
   <div id="background"></div>
   <main>
-    <div class="wrapper-center">
+    <div class="wrapper wrapper-center">
       <div class="introBox">
         <div class="tierListBox">
           <div class="tierList">
@@ -95,19 +95,37 @@
 
   function TLOpenInfoBox(gameId) {
 
-    const game = gameData.find(g => g.id === gameId);
-    const infobox = document.getElementById('infobox');
-    const title = document.getElementById('infobox-title');
-    const description = document.getElementById('infobox-description');
+    var game;
+    //const game = gameData.find(g => g.id === gameId);
+
+    fetch("./data/gameData.json")
+      .then(res => res.json())
+      .then(data => {
+        console.log(data); // [ {id:1, title:"Pierwszy wpis"}, ... ]
+
+        
+        game = data.find(g => g.id === gameId);
+        const infobox = document.getElementById('infobox');
+        const title = document.getElementById('infobox-title');
+        const description = document.getElementById('infobox-description');
 
 
-    document.querySelector("#infobox-image img").src = game.image;
+        document.querySelector("#infobox-image img").src = game.image;
 
 
 
-    title.textContent = game.title;
-    description.textContent = game.description;
-    infobox.style.display = 'block';
+        title.textContent = game.title;
+        description.textContent = game.description;
+        infobox.style.display = 'block';
+      });
+
+
+
+
+
+
+
+
 
   }
 
