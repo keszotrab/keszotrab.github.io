@@ -18,17 +18,14 @@
 
         <div class="wrapper wrapper-center">
             <div class="repo-grid">
-                <div class="repo-grid-item-left">Titel</div>
+                <div class="repo-grid-item-left">Project Name</div>
                 <div class="repo-grid-item-right">
                     <div class="repo-box">
-                        <div> Project Name</div>
                         <div> Description</div>
                         <div> Link To Repo</div>
                         <div> Image maybe?</div>
                     </div>
                 </div>
-
-
             </div>
 
         </div>
@@ -37,6 +34,101 @@
 </body>
 
 <script>
+    LoadProjects();
+
+
+    function LoadProjects() {
+
+        var project;
+        var projectId = 1;
+        var repoGrid = document.querySelector(".repo-grid");
+
+        fetch("./data/projectData.json")
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+
+                while (projectId < 5) {
+
+                    project = data.find(p => p.id === projectId);
+
+                    if (project == null || project == undefined || project.id >= 20) { break };
+
+
+                    console.log(project.id)
+
+
+                    var newLeftGridItem = document.createElement("div");
+                    newLeftGridItem.setAttribute("class", 'repo-grid-item-left');
+                    newLeftGridItem.setAttribute("project-id", projectId);
+
+                    newLeftGridItem.textContent = project.name;
+
+
+                    repoGrid.append(newLeftGridItem);
+
+
+                    var newRightGridItem = document.createElement("div");
+                    newRightGridItem.setAttribute("class", 'repo-grid-item-right');
+                    newRightGridItem.setAttribute("project-id", projectId);
+
+                    //newRightGridItem.textContent = project.description;
+
+                    var repoBox = document.createElement("div");
+                    repoBox.setAttribute("class", "repo-box");
+
+                    var img = document.createElement("div");
+                    img.setAttribute("class", "repo-box-img");
+                    
+
+                    var desc = document.createElement("div");
+                    desc.setAttribute("class", "repo-box-desc");
+                    desc.textContent = project.description;
+
+                    var link = document.createElement("a");
+                    link.setAttribute("class", "repo-box-link");
+                    link.setAttribute("href", project.linkToRepo);
+                    link.setAttribute("target", "_blank");
+
+                    link.textContent = "Link to repository";
+
+                    if (project.image == "image-missing") {
+                        img.textContent = "IMAGE IS MISSING";
+                    }
+                    else{
+                        img.textContent = project.image;      ///// FIX IT SO ITS ACTUAL IMAGE, REQUIRES REWORK ANYWAY
+                    }
+
+
+                    repoBox.append(desc);
+                    repoBox.append(link);
+                    repoBox.append(img);
+
+                    repoGrid.append(newRightGridItem);
+                    newRightGridItem.append(repoBox);
+
+                    ///TODO ADD LOGIC TO ADDING IMAGES IF THERE'S NO PATH TO IMAGE.................
+                    // TODO FIX LINK SO IT LINKS TO STUFF;
+                    //TODO make more interesting, add more elements and apppend them to the thing above, etc............................
+
+                    projectId++;
+                    
+                }
+
+            });
+
+
+
+
+
+
+
+
+
+    }
+
+
+
 </script>
 <script src="background.js"></script>
 

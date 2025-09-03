@@ -228,12 +228,12 @@ main {
 }
 
 .repo-box {
-  max-width: 80%;
+  max-width: 100%;
   min-width: 70%;
   max-height: 100%;
-  padding: 5px;
+  padding: 10px;
   background: #f93;
-  text-align: center;
+  text-align: left;
   border-radius: 8px;
   margin: 20px;
 }
