@@ -1,0 +1,18 @@
+{
+  "eng": {
+    "index-title": "WEBSITE UNDER CONSTRUCTION",
+    "index-desc": "(so it looks absolutly terrible 💀)",
+
+    "banner-logo": "Landing Page",
+    "banner-repos": "Projects",
+    "banner-ranking": "Tier List"
+  },
+  "pl": {
+    "index-title": "STRONA W BUDOWIE",
+    "index-desc": "(więc wyglada absolutnie tragicznie 💀)",
+
+    "banner-logo": "Strona główna",
+    "banner-repos": "Projekty",
+    "banner-ranking": "Tier Lista"
+  }
+}

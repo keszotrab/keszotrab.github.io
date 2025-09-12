@@ -10,7 +10,28 @@
 </head>
 
 <body>
-    <object type="text/html" data="banner.html" class="bannerBox"></object>
+    <div class="banner">
+    <div class="banner-flex">
+      <div class="banner-item">
+        <a data-lang="banner-logo" href="index.html" target="_top">
+          imgTODO
+        </a>
+      </div>
+      <div class="banner-item">
+        <a data-lang="banner-repos" href="repos.html" target="_top">Project Repos</a>
+      </div>
+
+      <div class="banner-item">
+        <a data-lang="banner-ranking" href="ranking.html" target="_top">Tierlist</a>
+      </div>
+    </div>
+    <div class="banner-lang">
+      <select name="language" id="language-droplist">
+        <option value="eng">English</option>
+        <option value="pl">Polski</option>
+      </select>
+    </div>
+  </div>
     <div id="background"></div>
 
     <main>
@@ -35,8 +56,6 @@
 
 <script>
     LoadProjects();
-
-
     function LoadProjects() {
 
         var project;
@@ -72,14 +91,13 @@
                     newRightGridItem.setAttribute("class", 'repo-grid-item-right');
                     newRightGridItem.setAttribute("project-id", projectId);
 
-                    //newRightGridItem.textContent = project.description;
 
                     var repoBox = document.createElement("div");
                     repoBox.setAttribute("class", "repo-box");
 
                     var img = document.createElement("div");
                     img.setAttribute("class", "repo-box-img");
-                    
+
 
                     var desc = document.createElement("div");
                     desc.setAttribute("class", "repo-box-desc");
@@ -95,7 +113,7 @@
                     if (project.image == "image-missing") {
                         img.textContent = "IMAGE IS MISSING";
                     }
-                    else{
+                    else {
                         img.textContent = project.image;      ///// FIX IT SO ITS ACTUAL IMAGE, REQUIRES REWORK ANYWAY
                     }
 
@@ -112,18 +130,10 @@
                     //TODO make more interesting, add more elements and apppend them to the thing above, etc............................
 
                     projectId++;
-                    
+
                 }
 
             });
-
-
-
-
-
-
-
-
 
     }
 
@@ -131,6 +141,8 @@
 
 </script>
 <script src="background.js"></script>
+<script src="language.js"></script>
+
 
 
 </html>
